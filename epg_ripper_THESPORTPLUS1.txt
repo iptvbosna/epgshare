@@ -1,0 +1,8 @@
+202502120534
+
+
+-- epg_ripper_THESPORTPLUS1 --
+
+Sport.Plus.Australia.thesportplus
+Sport.Plus.Europe.thesportplus
+Sport.Plus.U.S.A.thesportplus
