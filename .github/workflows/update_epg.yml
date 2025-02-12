@@ -2,7 +2,7 @@ name: Update EPG
 
 on:
   schedule:
-    - cron: "0 * * * *"  # Pokreće se svakih sat vremena
+    - cron: "0 */6 * * *"  # Pokreće se svakih sat vremena
   workflow_dispatch:  # Omogućava ručno pokretanje
 
 jobs:
