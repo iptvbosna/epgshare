@@ -2,7 +2,7 @@ name: Update EPG XML
 
 on:
   schedule:
-    - cron: "*/5 * * * *"  # Pokreće se svakih 5 minuta
+    - cron: "0 */12 * * *"  # Pokreće se svakih 12 sati
   workflow_dispatch:  # Ručno pokretanje iz GitHub Actions
 
 jobs:
