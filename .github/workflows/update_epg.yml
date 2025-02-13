@@ -2,8 +2,8 @@ name: Update EPG XML
 
 on:
   schedule:
-    - cron: "0 * * * *"  # Pokreće se svakih sat vremena
-  workflow_dispatch: # Ručno pokretanje
+    - cron: "*/5 * * * *"  # Pokreće se svakih 5 minuta
+  workflow_dispatch:  # Ručno pokretanje iz GitHub Actions
 
 jobs:
   update-epg:
@@ -14,12 +14,16 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Download latest EPG XML
-        run: wget -O epg.xml "http://sehara.eu/epgshare/epg.xml"
+        run: wget -O epg.xml "https://epgshare01.online/epgshare01/"
+
+      - name: Compress EPG XML
+        run: gzip -c epg.xml > epg.xml.gz
 
       - name: Commit and push if changed
         run: |
           git config --global user.name "github-actions"
           git config --global user.email "actions@github.com"
-          git add epg.xml
-          git diff --quiet && git diff --staged --quiet || git commit -m "Auto-update epg.xml"
+          git add epg.xml.gz
+          git diff --quiet && git diff --staged --quiet || git commit -m "Auto-update epg.xml.gz"
           git push
+
