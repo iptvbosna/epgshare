@@ -26,4 +26,3 @@ jobs:
           git add epg.xml.gz
           git diff --quiet && git diff --staged --quiet || git commit -m "Auto-update epg.xml.gz"
           git push
-
